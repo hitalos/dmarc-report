@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+require('dotenv').config()
+
+const app = require('../src/app')
+
+process.on('uncaughtException', (err) => {
+  console.error(err.message)
+  process.exit(1)
+})
+
+app.listen(3000)

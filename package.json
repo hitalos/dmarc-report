@@ -1,0 +1,26 @@
+{
+  "name": "dmarc-report",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./bin/server"
+  },
+  "keywords": [],
+  "author": "Hítalo Silva <hitalos@jfal.jus.br>",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "imap": "^0.8.19",
+    "json2csv": "^3.11.4",
+    "mailparser": "^2.1.0",
+    "unzip": "^0.1.11",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.0.2",
+    "eslint-plugin-import": "^2.7.0"
+  }
+}
