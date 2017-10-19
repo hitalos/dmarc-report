@@ -12,6 +12,7 @@
   "description": "",
   "dependencies": {
     "bulma": "^0.6.0",
+    "d3": "^4.11.0",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "helmet": "^3.9.0",
