@@ -8,8 +8,8 @@ router.get('/css/bulma.min.css', (req, res) => {
   res.sendFile('bulma/css/bulma.css', { root })
 })
 
-router.get('/js/d3.js', (req, res) => {
-  res.sendFile('d3/build/d3.min.js', { root })
+router.get('/js/highcharts.js', (req, res) => {
+  res.sendFile('highcharts/highcharts.js', { root })
 })
 
 router.get('/report.json', data.json)

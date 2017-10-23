@@ -12,10 +12,10 @@
   "description": "",
   "dependencies": {
     "bulma": "^0.6.0",
-    "d3": "^4.11.0",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "helmet": "^3.9.0",
+    "highcharts": "^6.0.2",
     "imap": "^0.8.19",
     "json2csv": "^3.11.4",
     "mailparser": "^2.1.0",
