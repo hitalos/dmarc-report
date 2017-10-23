@@ -1,5 +1,5 @@
 const request = new XMLHttpRequest()
-request.open('GET', '/report.json', true)
+request.open('GET', 'report.json', true)
 
 function onLoad() {
   if (this.status >= 200 && this.status < 400) {

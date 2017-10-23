@@ -1,6 +1,7 @@
 {
   "name": "dmarc-report",
   "version": "1.0.0",
+  "main": "src/app",
   "scripts": {
     "postinstall": "cp -n .env-example .env",
     "test": "echo \"Error: no test specified\" && exit 1",

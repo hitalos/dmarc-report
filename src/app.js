@@ -3,7 +3,7 @@ const helmet = require('helmet')
 
 const routes = require('./routes')
 
-const app = express()
+const app = express.Router()
 
 app.use(helmet())
 app.use(express.static('public'))

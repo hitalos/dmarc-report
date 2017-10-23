@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 
 require('dotenv').config()
+const express = require('express')
 
-const app = require('../src/app')
+const app = express()
+
+app.use(require('../src/app'))
 
 process.on('uncaughtException', (err) => {
   console.error(err.message)
