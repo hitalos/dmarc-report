@@ -1,12 +1,13 @@
 const express = require('express')
 const helmet = require('helmet')
+const path = require('path')
 
 const routes = require('./routes')
 
 const app = express.Router()
 
 app.use(helmet())
-app.use(express.static('public'))
+app.use(express.static(path.resolve(__dirname, '../public')))
 
 app.use(routes)
 
