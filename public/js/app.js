@@ -3,40 +3,49 @@ request.open('GET', 'report.json', true)
 
 function onLoad() {
   if (this.status >= 200 && this.status < 400) {
-    const data = JSON.parse(this.response)
+    const data = JSON.parse(this.response).map(({ Org, Data, Msgs }) => ({
+      Org,
+      Data: new Date(Data).toLocaleDateString(),
+      Msgs,
+    }))
     const orgs = data.reduce((accum, item) => {
       if (!accum.includes(item.Org)) accum.push(item.Org)
       return accum
     }, [])
     const dates = data.reduce((accum, item) => {
-      if (!accum.includes(item.Data)) accum.push(new Date(item.Data).toLocaleDateString())
+      if (!accum.includes(item.Data)) accum.push(item.Data)
       return accum
     }, [])
-    const series = orgs.map(item => ({
-      name: item,
-      data: data.reduce((accum, item2) => {
-        if (item2.Org === item) accum.push(item.Msgs)
-        return accum
-      }, [])
+    const series = orgs.map(org => ({
+      name: org,
+      data: dates.map((date) => {
+        const list = data
+          .filter(item => item.Org === org)
+          .filter(item => item.Data === date)
+        if (list.length) return list[0].Msgs
+        return 0
+      })
     }))
 
     Highcharts.chart('chart', {
       chart: {
-        type: 'bar'
+        type: 'bar',
       },
       title: {
-        text: 'Messages by Organization'
+        text: 'Messages by Organization',
       },
       xAxis: {
-        dates
+        categories: dates,
       },
       yAxis: {
+        orgs,
         title: {
-          text: 'Msgs'
+          text: 'Msgs',
         }
       },
-      series
+      series,
     })
+    console.log(series)
   } else {
     console.error(this.response)
   }

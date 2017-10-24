@@ -27,3 +27,6 @@ Copy or rename `.env-example` to `.env` and set the values to your environment.
 ### Run
 
     npm start
+
+Obs.:
+If you using this project as middleware, certify yourself that expose environment variables. (IMAP_HOST, IMAP_USER, IMAP_PASS)

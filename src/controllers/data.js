@@ -6,6 +6,8 @@ module.exports = {
   json: (req, res) => {
     imapSearch().then((data) => {
       res.send(data)
+    }).catch((err) => {
+      res.status(500).send(err.message)
     })
   },
   csv: (req, res) => {
