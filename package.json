@@ -1,15 +1,22 @@
 {
   "name": "dmarc-report",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/app",
   "scripts": {
     "test": "eslint bin/server src/",
     "start": "./bin/server"
   },
-  "keywords": [],
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/hitalos/dmarc-report.git"
+  },
+  "keywords": ["dmarc"],
   "author": "Hítalo Silva <hitalos@jfal.jus.br>",
+  "contributors": [
+    "Marcel Ramon <marcelmcz@gmail.com>"
+  ],
   "license": "ISC",
-  "description": "",
+  "description": "DMARC Report generator",
   "dependencies": {
     "bulma": "^0.6.0",
     "dotenv": "^4.0.0",
