@@ -8,6 +8,7 @@ const imapOptions = {
   host: process.env.IMAP_HOST || '',
   user: process.env.IMAP_USER || '',
   password: process.env.IMAP_PASS || '',
+  folder: process.env.IMAP_FOLDER || 'INBOX',
   tls: true,
   port: 993,
 }
@@ -23,7 +24,7 @@ module.exports = () => new Promise((resolv, reject) => {
   imap.connect()
   imap.on('error', reject)
   imap.once('ready', () => {
-    imap.openBox('INBOX', true, (err, box) => {
+    imap.openBox(imapOptions.folder, true, (err, box) => {
       if (err) throw err
       const filter = imap.seq.fetch(`1:${box.messages.total}`, {
         bodies: '',
@@ -53,4 +54,3 @@ module.exports = () => new Promise((resolv, reject) => {
     })
   })
 })
-
