@@ -3,13 +3,21 @@
 require('dotenv').config()
 const express = require('express')
 
+function errorHandler(err) {
+  console.error(err.message)
+  process.exit(1)
+}
+
+const missing = ['IMAP_HOST', 'IMAP_USER', 'IMAP_PASS'].filter(item => !process.env[item])
+
+if (missing.length) {
+  errorHandler(new Error(`Missing environment variable(s)! \n${missing.join('\n')}`))
+}
+
 const app = express()
 
 app.use(require('../src/app'))
 
-process.on('uncaughtException', (err) => {
-  console.error(err.message)
-  process.exit(1)
-})
+process.on('uncaughtException', errorHandler)
 
 app.listen(3000)
