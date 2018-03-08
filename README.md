@@ -1,5 +1,7 @@
 # Consolide your "DMARC" reports!
 
+[![NPM](https://nodei.co/npm/dmarc-report.png)](https://nodei.co/npm/dmarc-report/)
+
 ## The Problem
 
 The DMARC reports are received on email attachments in XML format (compressed).
@@ -16,9 +18,14 @@ I decided build a script that:
 
 ## Instructions
 
-### Install Dependencies
+### Install the project
 
+    git clone https://github.com/hitalos/dmarc-report
     npm i --only=production
+
+### Install for express as a middleware
+
+    npm i dmarc-report
 
 ### Configuration
 
