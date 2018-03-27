@@ -45,7 +45,6 @@ function onLoad() {
       },
       series,
     })
-    console.log(series)
   } else {
     console.error(this.response)
   }

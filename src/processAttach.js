@@ -34,7 +34,7 @@ module.exports = mail => new Promise((resolv, reject) => {
           file.end(zlib.unzipSync(attach.content))
           break
         default:
-          console.log(attach.contentType)
+          console.log(`Unknow attachment content-type: ${attach.contentType}`)
       }
       file.on('finish', () => {
         parseString(xmlArray.join(''), (error, xml) => {
