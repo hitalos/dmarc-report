@@ -24,6 +24,7 @@
     "express": "^4.16.2",
     "helmet": "^3.9.0",
     "highcharts": "^6.0.2",
+    "compression": "^1.7.2",
     "imap": "^0.8.19",
     "json2csv": "^3.11.4",
     "mailparser": "^2.1.0",
