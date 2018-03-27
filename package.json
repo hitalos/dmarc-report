@@ -1,6 +1,6 @@
 {
   "name": "dmarc-report",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "src/app",
   "scripts": {
     "test": "eslint bin/server src/",
@@ -10,7 +10,11 @@
     "type": "git",
     "url": "https://github.com/hitalos/dmarc-report.git"
   },
-  "keywords": ["dmarc"],
+  "keywords": [
+    "dmarc",
+    "email",
+    "report"
+  ],
   "author": "Hítalo Silva <hitalos@jfal.jus.br>",
   "contributors": [
     "Marcel Ramon <marcelmcz@gmail.com>",
