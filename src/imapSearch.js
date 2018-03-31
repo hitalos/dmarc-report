@@ -11,6 +11,7 @@ const imapOptions = {
   folder: process.env.IMAP_FOLDER || 'INBOX',
   tls: true,
   port: 993,
+  readOnly: !(process.env.IMAP_READ_ONLY === '0'), // 0=>Disabled, 1=>Enabled (Default)
 }
 
 if (!imapOptions.user || !imapOptions.password) {
@@ -24,7 +25,7 @@ module.exports = () => new Promise((resolv, reject) => {
   imap.connect()
   imap.on('error', reject)
   imap.once('ready', () => {
-    imap.openBox(imapOptions.folder, true, (err, box) => {
+    imap.openBox(imapOptions.folder, imapOptions.readOnly, (err, box) => {
       if (err) throw err
       const filter = imap.seq.fetch(`1:${box.messages.total}`, {
         bodies: '',
@@ -37,6 +38,13 @@ module.exports = () => new Promise((resolv, reject) => {
             buf.push(chunk.toString('utf8'))
           })
         })
+        if (box.readOnly === false) {
+          msg.once('attributes', (attrs) => {
+            imap.setFlags([attrs.uid], ['\\Seen'], (flagErr) => {
+              if (flagErr) throw flagErr
+            })
+          })
+        }
         msg.once('end', () => {
           simpleParser(buf.join(''))
             .then(processAttach)

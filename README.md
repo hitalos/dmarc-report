@@ -56,4 +56,5 @@ IMAP_HOST=yourdomain.com
 IMAP_USER=dmarc
 IMAP_PASS=password
 IMAP_FOLDER=INBOX
+IMAP_READ_ONLY=1
 ```
