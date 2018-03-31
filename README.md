@@ -48,6 +48,9 @@ const app = express()
 app.use('/dmarc', dmarc)
 app.listen(3000)
 ```
+
+> `SERVER_PORT` has no effect when running as a middleware
+
 Certify yourself that expose environment variables or use `dotenv` module to load it.
 
 `.env` example:
@@ -56,4 +59,5 @@ IMAP_HOST=yourdomain.com
 IMAP_USER=dmarc
 IMAP_PASS=password
 IMAP_FOLDER=INBOX
+SERVER_PORT=3000
 ```
