@@ -2,8 +2,8 @@ const router = require('express').Router()
 
 const { data } = require('../controllers')
 
-const bulmaCSS = require.resolve('bulma/css/bulma.css');
-const highchartsJS = require.resolve('highcharts/highcharts.js');
+const bulmaCSS = require.resolve('bulma/css/bulma.css')
+const highchartsJS = require.resolve('highcharts/highcharts.js')
 
 router.get('/css/bulma.min.css', (req, res) => {
   res.sendFile(bulmaCSS)
