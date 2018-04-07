@@ -38,6 +38,7 @@ function onLoad() {
         categories: dates,
       },
       yAxis: {
+        allowDecimals: false,
         orgs,
         title: {
           text: 'Msgs',
