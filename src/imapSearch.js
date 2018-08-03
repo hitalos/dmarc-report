@@ -31,6 +31,7 @@ module.exports = () => new Promise((resolv, reject) => {
         bodies: '',
       })
       console.log(`Found ${box.messages.total} messages`)
+      let { total } = box.messages
       filter.on('message', (msg) => {
         const buf = []
         msg.on('body', (stream) => {
@@ -50,10 +51,10 @@ module.exports = () => new Promise((resolv, reject) => {
             .then(processAttach)
             .then((data) => {
               result.push(data)
-              if (result.length === box.messages.total) {
+              if (result.length === total) {
                 resolv(processResult(result))
               }
-            }).catch(reject)
+            }).catch(() => { total -= 1 })
         })
       })
       filter.once('end', () => {

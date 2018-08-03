@@ -11,6 +11,10 @@ const types = [
 ]
 
 module.exports = mail => new Promise((resolv, reject) => {
+  if (mail.attachments.length === 0) {
+    reject(new Error('Message without attachments!'))
+    return
+  }
   mail.attachments.forEach((attach) => {
     if (types.includes(attach.contentType) && attach.content) {
       const pt = new PassThrough()
