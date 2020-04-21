@@ -1,5 +1,5 @@
 const { Writable, PassThrough } = require('stream')
-const unzip = require('unzip')
+const unzip = require('unzipper')
 const { parseString } = require('xml2js')
 const zlib = require('zlib')
 
