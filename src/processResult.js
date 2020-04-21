@@ -1,4 +1,4 @@
-module.exports = result => result
+module.exports = (result) => result
   .reduce((accum, item) => {
     const date = new Date(item.date)
     const count = item.report.reduce(

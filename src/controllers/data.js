@@ -12,7 +12,7 @@ module.exports = {
   },
   csv: (req, res) => {
     imapSearch().then((data) => {
-      const csv = data.map(item => ({
+      const csv = data.map((item) => ({
         ...item,
         Data: item.Data.toLocaleDateString(),
       }))

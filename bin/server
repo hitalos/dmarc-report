@@ -8,7 +8,7 @@ function errorHandler(err) {
   process.exit(1)
 }
 
-const missing = ['IMAP_HOST', 'IMAP_USER', 'IMAP_PASS'].filter(item => !process.env[item])
+const missing = ['IMAP_HOST', 'IMAP_USER', 'IMAP_PASS'].filter((item) => !process.env[item])
 
 if (missing.length) {
   errorHandler(new Error(`Missing environment variable(s)! \n${missing.join('\n')}`))

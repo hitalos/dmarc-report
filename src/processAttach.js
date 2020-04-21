@@ -10,7 +10,7 @@ const types = [
   'application/x-gzip',
 ]
 
-module.exports = mail => new Promise((resolv, reject) => {
+module.exports = (mail) => new Promise((resolv, reject) => {
   if (mail.attachments.length === 0) {
     reject(new Error('Message without attachments!'))
     return
@@ -43,7 +43,7 @@ module.exports = mail => new Promise((resolv, reject) => {
       file.on('finish', () => {
         parseString(xmlArray.join(''), (error, xml) => {
           resolv({
-            org: xml.feedback.report_metadata.map(item => item.org_name.join(' ')).join(' '),
+            org: xml.feedback.report_metadata.map((item) => item.org_name.join(' ')).join(' '),
             report: xml.feedback.record,
             date: xml.feedback.report_metadata[0].date_range[0].begin[0] * 1000,
           })
