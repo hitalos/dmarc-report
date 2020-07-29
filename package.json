@@ -1,6 +1,6 @@
 {
   "name": "dmarc-report",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "src/app",
   "scripts": {
     "test": "eslint bin/server src/",
