@@ -16,12 +16,12 @@ function onLoad() {
       if (!accum.includes(item.Data)) accum.push(item.Data)
       return accum
     }, [])
-    const series = orgs.map(org => ({
+    const series = orgs.map((org) => ({
       name: org,
       data: dates.map((date) => {
         const list = data
-          .filter(item => item.Org === org)
-          .filter(item => item.Data === date)
+          .filter((item) => item.Org === org)
+          .filter((item) => item.Data === date)
         if (list.length) return list[0].Msgs
         return 0
       })
