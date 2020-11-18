@@ -40,7 +40,7 @@ Copy or rename `.env-example` to `.env` and set the values to your environment.
 ### Using as a middleware
 
 Example:
-```
+```js
 const express = require('express')
 const dmarc = require('dmarc-report')
 
@@ -54,7 +54,7 @@ app.listen(3000)
 Certify yourself that expose environment variables or use `dotenv` module to load it.
 
 `.env` example:
-```
+```properties
 IMAP_HOST=yourdomain.com
 IMAP_USER=dmarc
 IMAP_PASS=password
