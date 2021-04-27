@@ -8,11 +8,11 @@ module.exports = (result) => result
       ),
       0,
     )
-    accum.push({ Org: item.org, Data: date, Msgs: count })
+    accum.push({ Org: item.org, ReportDate: date, Msgs: count })
     return accum
   }, [])
   .sort((a, b) => {
-    if (a.Data < b.Data) return -1
-    if (a.Data > b.Data) return 1
+    if (a.ReportDate < b.ReportDate) return -1
+    if (a.ReportDate > b.ReportDate) return 1
     return 0
   })
