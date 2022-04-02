@@ -18,7 +18,7 @@ module.exports = {
       }))
       res.set({
         'Content-Type': 'text/csv',
-        'Content-Disposition': 'attachment; filename="report.csv"'
+        'Content-Disposition': 'attachment; filename="report.csv"',
       })
       const result = json2csv({ data: csv })
       res.send(result)
