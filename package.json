@@ -4,7 +4,7 @@
   "main": "src/app",
   "scripts": {
     "test": "eslint bin/server src/",
-    "start": "./bin/server"
+    "start": "node ./bin/server"
   },
   "repository": {
     "type": "git",
